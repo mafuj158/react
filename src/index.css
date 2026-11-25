@@ -1,0 +1,195 @@
+/* Modern Google Fonts: Plus Jakarta Sans (UI) & JetBrains Mono (Code) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Typography Variables */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radius Variable */
+  --radius: 4px;
+
+  /* Theme Palette - Light Mode */
+  --bg-canvas: #fafafa;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f4f4f5;
+  --bg-card-hover: #f1f1f4;
+  --bg-elevated: #ffffff;
+
+  --border-subtle: #e4e4e7;
+  --border-default: #d4d4d8;
+  --border-hover: #a1a1aa;
+
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-subtle: rgba(37, 99, 235, 0.08);
+
+  --color-success: #10b981;
+  --color-success-subtle: rgba(16, 185, 129, 0.1);
+
+  --color-warning: #f59e0b;
+  --color-warning-subtle: rgba(245, 158, 11, 0.1);
+
+  --color-danger: #ef4444;
+  --color-danger-subtle: rgba(239, 68, 68, 0.1);
+
+  --color-purple: #8b5cf6;
+  --color-purple-subtle: rgba(139, 92, 246, 0.1);
+}
+
+.dark {
+  /* Theme Palette - Dark Mode */
+  --bg-canvas: #09090b;
+  --bg-card: #111114;
+  --bg-card-subtle: #18181c;
+  --bg-card-hover: #202026;
+  --bg-elevated: #1f1f25;
+
+  --border-subtle: #27272a;
+  --border-default: #3f3f46;
+  --border-hover: #52525b;
+
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-subtle: rgba(59, 130, 246, 0.14);
+
+  --color-success: #10b981;
+  --color-success-subtle: rgba(16, 185, 129, 0.15);
+
+  --color-warning: #f59e0b;
+  --color-warning-subtle: rgba(245, 158, 11, 0.15);
+
+  --color-danger: #ef4444;
+  --color-danger-subtle: rgba(239, 68, 68, 0.15);
+
+  --color-purple: #a855f7;
+  --color-purple-subtle: rgba(168, 85, 247, 0.15);
+}
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --color-canvas: var(--bg-canvas);
+  --color-card: var(--bg-card);
+  --color-card-subtle: var(--bg-card-subtle);
+  --color-card-hover: var(--bg-card-hover);
+  --color-elevated: var(--bg-elevated);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-subtle: var(--color-primary-subtle);
+
+  --color-success: var(--color-success);
+  --color-success-subtle: var(--color-success-subtle);
+
+  --color-warning: var(--color-warning);
+  --color-warning-subtle: var(--color-warning-subtle);
+
+  --color-danger: var(--color-danger);
+  --color-danger-subtle: var(--color-danger-subtle);
+
+  --color-purple: var(--color-purple);
+  --color-purple-subtle: var(--color-purple-subtle);
+
+  --radius: 4px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Force 4px radius across all cards, panels, inputs, boxes */
+  .rounded-2xl, .rounded-xl, .rounded-lg, .rounded-md {
+    border-radius: var(--radius) !important;
+  }
+
+  /* Custom sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.45);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(82, 82, 91, 0.4);
+    border-radius: var(--radius);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(113, 113, 122, 0.6);
+  }
+
+  pre, code, kbd {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Helper Utility Classes mapped directly to Theme Variables */
+.bg-canvas { background-color: var(--bg-canvas); }
+.bg-card { background-color: var(--bg-card); }
+.bg-card-subtle { background-color: var(--bg-card-subtle); }
+.bg-card-hover:hover { background-color: var(--bg-card-hover); }
+
+.border-subtle { border-color: var(--border-subtle); }
+.border-default { border-color: var(--border-default); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+.text-accent-primary { color: var(--color-primary); }
+.bg-accent-primary { background-color: var(--color-primary); }
+.bg-accent-subtle { background-color: var(--color-primary-subtle); }
